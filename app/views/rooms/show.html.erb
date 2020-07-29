@@ -10,17 +10,28 @@
   <%= @room.description %>
 </p>
 
-<p>
-  <strong>Messages:</strong>
+<strong>Messages:</strong>
+
+
+<div id="chatbox" class="card m-5">
+  <p>
+    <br/>
+    <br/>
+    <div id="msg">
+      <% @room.messages.each do |message| %>
+        <%# <p><%= "#{message.user.email} says:" %></p>
+        <div class="p-3"><%= message.body %></div>
+      <% end %>
+    </div>
+    <br/>
+    <br/>
+  </p>
   <br/>
   <br/>
-  <% @room.messages.each do |message| %>
-    <p><%= "#{message.user.email} says:" %></p>
-    <p><%= message.body %></p>
-  <% end %>
   <br/>
   <br/>
-</p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
