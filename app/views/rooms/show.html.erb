@@ -10,5 +10,17 @@
   <%= @room.description %>
 </p>
 
+<p>
+  <strong>Messages:</strong>
+  <br/>
+  <br/>
+  <% @room.messages.each do |message| %>
+    <p><%= "#{message.user.email} says:" %></p>
+    <p><%= message.body %></p>
+  <% end %>
+  <br/>
+  <br/>
+</p>
+
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

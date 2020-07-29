@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    ActionCable.server.broadcast("room_channel", content: "hello there")
   end
 
   # GET /rooms/new
