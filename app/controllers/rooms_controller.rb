@@ -11,6 +11,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
     ActionCable.server.broadcast("room_channel", content: "hello there")
+    @room = Room.find(params[:id])
+    @message = @room.messages.build
   end
 
   # GET /rooms/new

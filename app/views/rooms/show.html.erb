@@ -13,7 +13,7 @@
 <strong>Messages:</strong>
 
 
-<div id="chatbox" class="card m-5">
+<div id="chatbox" class="card mb-0 mt-5 ml-5 mr-5">
   <p>
     <br/>
     <br/>
@@ -32,6 +32,16 @@
   <br/>
   </div>
 </div>
+
+<div id="new-message-box" class="card mb-5 mt-0 ml-5 mr-5">
+  <%= form_for @message, remote: true do |f| %>
+    <div class="row m-0">
+      <%= f.text_area :body, {class: 'form-control col-11'} %>
+      <%= f.submit 'Send', {class: 'col-1'}%>
+    </div>
+  <% end %>
+</div>
+
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
