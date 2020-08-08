@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_120434) do
+ActiveRecord::Schema.define(version: 2020_07_29_214731) do
+
+  create_table "messages", force: :cascade do |t|
+    t.string "body"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
@@ -20,12 +30,14 @@ ActiveRecord::Schema.define(version: 2020_07_29_120434) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "username"
+    t.string "email"
   end
 
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
 end

@@ -10,6 +10,6 @@ Room.create(name: 'Music', description: 'Gimme sumadem funki tunes')
 Room.create(name: 'Politics', description: "I'm right, you're wrong")
 Room.create(name: 'Programming', description: "if (!programmer){pls leave}")
 
-User.create(email: "qwer@qwer.com", password: "password")
+User.create(email: "qwer@qwer.com", username: 'testuser', password: "password")
 
 Message.create(user_id: 1, room_id: 1, body: 'Skadoooosh')
