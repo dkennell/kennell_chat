@@ -14,6 +14,7 @@ consumer.subscriptions.create("RoomChannel", {
     // Called when there's incoming data on the websocket for this channel
     console.log("Receiving:")
     console.log(data.content)
+    console.log(data.user_id)
     let div = buildChatMessage(data.content)
     document.querySelector('#msg').appendChild(div)
   }

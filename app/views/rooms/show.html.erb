@@ -37,6 +37,7 @@
   <%= form_for @message, remote: true do |f| %>
     <div class="row m-0">
       <%= f.text_area :body, {class: 'form-control col-11'} %>
+      <%= f.hidden_field :username, value: @username %>
       <%= f.submit 'Send', {class: 'col-1'}%>
     </div>
   <% end %>
