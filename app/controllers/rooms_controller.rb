@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
     ActionCable.server.broadcast("room_channel", content: "hello there")
     @room = Room.find(params[:id])
     @message = @room.messages.build
-    @username = current_user.username
+    @username = params[:username]
   end
 
   # GET /rooms/new

@@ -1,0 +1,14 @@
+Welcome to the room.
+
+Please enter your desired screenname below.
+
+
+<div class="card mb-5 mt-0 ml-5 mr-5">
+  <%= form_with url: "/rooms/#{@room_id}/guest_sessions" do |f| %>
+    <div class="row m-0">
+      <%= f.text_area :username, {class: 'form-control col-11'} %>
+      <%= f.hidden_field :room_id, value: @room_id %>
+      <%= f.submit 'Send', {class: 'col-1'}%>
+    </div>
+  <% end %>
+</div>
